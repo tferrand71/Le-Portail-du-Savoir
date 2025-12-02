@@ -1,0 +1,705 @@
+/* Thème amélioré et professionnel */
+:root {
+    --primary: #4b6cb7;
+    --secondary: #182848;
+    --success: #28a745;
+    --danger: #dc3545;
+    --warning: #ffc107;
+    --info: #17a2b8;
+    --light: #f8f9fa;
+    --dark: #343a40;
+    --white: #ffffff;
+    --gray: #6c757d;
+  }
+  
+  html, body {
+      height: 100%;
+  }
+  
+  body {
+      font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.6;
+      color: #333;
+  }
+  
+  header {
+      background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+      color: white;
+      padding: 1rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+  }
+  
+  nav h1 {
+      margin: 0;
+      font-size: 1.5rem;
+      color: white;
+      font-weight: 600;
+  }
+  
+  nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+      font-size: 1.1rem;
+  }
+  
+  nav a:hover {
+      background: rgba(255, 255, 255, 0.15);
+      transform: translateY(-2px);
+  }
+  
+  main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+      flex: 1 0 auto;
+  }
+  
+  h1, h2 {
+      color: #2c3e50;
+      text-align: center;
+      margin-bottom: 2rem;
+  }
+  
+  /* Cartes modernes */
+  .card {
+      background: var(--white);
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+  }
+  
+  /* Styles des boutons de matière améliorés */
+  .subjects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin: 3rem 1rem;
+  }
+  
+  .subject-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1.5rem;
+      border-radius: 16px;
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: white;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+      min-height: 120px;
+      position: relative;
+      overflow: hidden;
+  }
+  
+  .subject-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+  }
+  
+  .subject-btn:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  }
+  
+  .subject-btn:nth-child(1) { background: linear-gradient(135deg,#e74c3c,#c0392b); }
+  .subject-btn:nth-child(2) { background: linear-gradient(135deg,#3498db,#2980b9); }
+  .subject-btn:nth-child(3) { background: linear-gradient(135deg,#2ecc71,#27ae60); }
+  .subject-btn:nth-child(4) { background: linear-gradient(135deg,#9b59b6,#8e44ad); }
+  .subject-btn:nth-child(5) { background: linear-gradient(135deg,#f39c12,#d35400); }
+  .subject-btn:nth-child(6) { background: linear-gradient(135deg,#1abc9c,#16a085); }
+  .subject-btn:nth-child(7) { background: linear-gradient(135deg,#34495e,#2c3e50); }
+  
+  /* Styles des étiquettes améliorés */
+  .game-container {
+      display: flex;
+      justify-content: space-between;
+      gap: 3rem;
+      margin: 2rem 0;
+  }
+  
+  #questions, #answers {
+      flex: 1;
+      min-height: 400px;
+      background: #fff;
+      border-radius: 16px;
+      padding: 1.5rem;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+  }
+  
+  .label {
+      padding: 1.2rem 1.5rem;
+      margin: 0.5rem 0;
+      border-radius: 12px;
+      background: #f8f9fa;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+      border: 2px solid transparent;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      min-height: 60px;
+      position: relative;
+      overflow: hidden;
+  }
+  
+  .label:hover {
+      background: #e9ecef;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+  }
+  
+  .label.selected {
+      border: 2px solid #3498db;
+      background: #e3f2fd;
+      transform: scale(1.02);
+  }
+  
+  .label.correct {
+      background: #4caf50 !important;
+      color: white;
+      transform: scale(1.02);
+  }
+  
+  .label.wrong {
+      background: #f44336 !important;
+      color: white;
+      transform: scale(1.02);
+  }
+  
+  /* Contrôles de jeu */
+  .game-controls {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin: 2rem 0;
+  }
+  
+  .btn, #newGameBtn {
+      padding: 0.8rem 1.8rem;
+      border: none;
+      border-radius: 8px;
+      background: linear-gradient(135deg, var(--primary) 0%, #3a559d 100%);
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 1rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .btn:hover, #newGameBtn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 7px 14px rgba(74, 108, 183, 0.4);
+  }
+  
+  .btn-success {
+      background: linear-gradient(135deg, var(--success) 0%, #1e7e34 100%);
+  }
+  
+  .btn-danger {
+      background: linear-gradient(135deg, var(--danger) 0%, #bd2130 100%);
+  }
+  
+  /* Fil d'Ariane */
+  .breadcrumb {
+      margin-bottom: 2rem;
+      font-size: 1.1rem;
+      padding: 0.8rem 1.2rem;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  
+  .breadcrumb a {
+      color: #4b6cb7;
+      text-decoration: none;
+      font-weight: 500;
+  }
+  
+  .breadcrumb span {
+      color: #6c757d;
+  }
+  
+  /* Formulaire de gestion */
+  #addForm {
+      display: grid;
+      grid-template-columns: 1fr 1fr auto;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      background: white;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  
+  #addForm input {
+      padding: 0.8rem;
+      border: 1px solid #ced4da;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: border-color 0.3s;
+  }
+  
+  #addForm input:focus {
+      border-color: var(--primary);
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(75, 108, 183, 0.2);
+  }
+  
+  #addForm button {
+      padding: 0.8rem 1.5rem;
+      background: var(--success);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.3s;
+  }
+  
+  #addForm button:hover {
+      background: #218838;
+      transform: translateY(-2px);
+  }
+  
+  /* Footer */
+  footer {
+      flex-shrink: 0;
+      text-align: center;
+      padding: 1.5rem;
+      background: #2c3e50;
+      color: white;
+      margin-top: 3rem;
+  }
+  
+  footer a {
+      color: #fff;
+      text-decoration: underline;
+  }
+  
+  /* Tableau des scores */
+  .score-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 2rem 0;
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .score-table th, .score-table td {
+      padding: 1rem;
+      text-align: left;
+      border-bottom: 1px solid #e9ecef;
+  }
+  
+  .score-table th {
+      background: var(--primary);
+      color: white;
+      font-weight: 600;
+  }
+  
+  .score-table tr:last-child td {
+      border-bottom: none;
+  }
+  
+  .score-table tr:hover {
+      background: #f8f9fa;
+  }
+  
+  /* Badge de matière */
+  .subject-badge {
+      display: inline-block;
+      padding: 0.35rem 0.8rem;
+      border-radius: 50rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-align: center;
+      background: var(--primary);
+      color: white;
+  }
+  
+  /* Barre de progression */
+  .score-bar-container {
+      width: 100%;
+      height: 24px;
+      background: #e9ecef;
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+  }
+  
+  .score-bar {
+      height: 100%;
+      border-radius: 12px;
+      background: linear-gradient(90deg, var(--success) 0%, #5cb85c 100%);
+      transition: width 0.5s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+  
+  .score-text {
+      color: white;
+      font-weight: bold;
+      font-size: 0.75rem;
+      text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+  }
+  
+  /* Timbre */
+  .stamp {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      padding: 8px 15px;
+      border: 2px solid #e74c3c;
+      color: #e74c3c;
+      font-weight: bold;
+      text-transform: uppercase;
+      border-radius: 5px;
+      transform: rotate(15deg);
+      opacity: 0.8;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      background: white;
+      z-index: 10;
+  }
+  
+  /* Page des scores */
+  .scores-page {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      margin-bottom: 2rem;
+  }
+  
+  .scores-controls {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 1.5rem;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+  }
+  
+  .filter-group {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+  }
+  
+  .filter-select {
+      padding: 0.5rem;
+      border-radius: 6px;
+      border: 1px solid #ced4da;
+      background: white;
+  }
+  
+  /* Conteneurs vides */
+  .empty-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 400px;
+      background: #f8f9fa;
+      border-radius: 16px;
+      border: 2px dashed #dee2e6;
+  }
+  
+  .empty-message {
+      color: #6c757d;
+      font-size: 1.2rem;
+      text-align: center;
+      padding: 2rem;
+  }
+  
+  /* Styles pour la gestion des paires */
+  .pair-list {
+      margin-top: 2rem;
+  }
+  
+  .no-pairs {
+      text-align: center;
+      padding: 2rem;
+      background: white;
+      border-radius: 12px;
+      color: #6c757d;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  
+  .pair-item {
+      background: white;
+      border-radius: 12px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s;
+  }
+  
+  .pair-item:hover {
+      transform: translateY(-3px);
+  }
+  
+  .pair-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+  }
+  
+  .pair-text {
+      font-size: 1.1rem;
+      flex-grow: 1;
+      font-weight: 500;
+  }
+  
+  .pair-actions {
+      display: flex;
+      gap: 0.5rem;
+  }
+  
+  .edit-btn, .delete-btn, .save-btn, .cancel-btn {
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.3s;
+  }
+  
+  .edit-btn {
+      background: var(--warning);
+      color: #212529;
+  }
+  
+  .edit-btn:hover {
+      background: #e0a800;
+  }
+  
+  .delete-btn {
+      background: var(--danger);
+      color: white;
+  }
+  
+  .delete-btn:hover {
+      background: #c82333;
+  }
+  
+  .save-btn {
+      background: var(--success);
+      color: white;
+  }
+  
+  .save-btn:hover {
+      background: #218838;
+  }
+  
+  .cancel-btn {
+      background: var(--gray);
+      color: white;
+  }
+  
+  .cancel-btn:hover {
+      background: #5a6268;
+  }
+  
+  .edit-form {
+      display: grid;
+      grid-template-columns: 1fr 1fr auto;
+      gap: 1rem;
+      align-items: center;
+  }
+  
+  .edit-form input {
+      padding: 0.8rem;
+      border: 1px solid #ced4da;
+      border-radius: 8px;
+      font-size: 1rem;
+  }
+  
+  /* Indicateur de chargement */
+  .loading {
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      border: 2px solid rgba(255,255,255,.3);
+      border-radius: 50%;
+      border-top-color: #fff;
+      animation: spin 1s ease-in-out infinite;
+  }
+  
+  @keyframes spin {
+      to { transform: rotate(360deg); }
+  }
+  
+  /* Utilitaires */
+  .text-center {
+      text-align: center;
+  }
+  
+  .error {
+      color: var(--danger);
+      font-weight: 500;
+  }
+  
+  .table-responsive {
+      overflow-x: auto;
+      width: 100%;
+  }
+  
+  /* Animations */
+  @keyframes fadeInMove {
+      to {
+          opacity: 1;
+          transform: translateY(0);
+      }
+  }
+  
+  .fade-in {
+      opacity: 0;
+      transform: translateY(15px);
+      animation: fadeInMove 0.4s forwards ease-out;
+  }
+  
+  @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .animate-in {
+      animation: fadeIn 0.6s ease forwards;
+  }
+  
+  /* Effet de ripple pour les étiquettes */
+  .label::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 5px;
+      height: 5px;
+      background: rgba(255, 255, 255, 0.5);
+      opacity: 0;
+      border-radius: 100%;
+      transform: scale(1, 1) translate(-50%);
+      transform-origin: 50% 50%;
+  }
+  
+  .label:hover::after {
+      animation: ripple 1s ease-out;
+  }
+  
+  @keyframes ripple {
+      0% {
+          transform: scale(0, 0);
+          opacity: 1;
+      }
+      20% {
+          transform: scale(25, 25);
+          opacity: 1;
+      }
+      100% {
+          opacity: 0;
+          transform: scale(40, 40);
+      }
+  }
+  
+  /* Responsive */
+  @media (max-width: 992px) {
+      .game-container {
+          flex-direction: column;
+      }
+      
+      nav {
+          flex-direction: column;
+          gap: 1rem;
+      }
+      
+      nav h1 {
+          margin-top: 1rem;
+      }
+  }
+  
+  @media (max-width: 768px) {
+      main {
+          padding: 1rem;
+      }
+      
+      .card {
+          padding: 1.5rem;
+      }
+      
+      #addForm {
+          grid-template-columns: 1fr;
+      }
+      
+      .subjects {
+          grid-template-columns: 1fr;
+      }
+      
+      .game-controls {
+          flex-direction: column;
+          align-items: center;
+      }
+      
+      .pair-content {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 1rem;
+      }
+      
+      .edit-form {
+          grid-template-columns: 1fr;
+      }
+      
+      .scores-controls {
+          flex-direction: column;
+          align-items: stretch;
+      }
+      
+      .filter-group {
+          flex-direction: column;
+          align-items: stretch;
+      }
+  }
