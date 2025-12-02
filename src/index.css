@@ -1,0 +1,341 @@
+:root {
+    /* Palette "Système d'Éveil" */
+    --bg-deep: #050a14; /* Noir bleuté profond */
+    --bg-panel: rgba(16, 24, 45, 0.95); /* Panneau semi-transparent */
+
+    --neon-cyan: #00f3ff; /* La couleur "Mana" ou "Système" */
+    --neon-gold: #ffd700; /* La couleur "Légendaire/Éducation" */
+    --neon-red: #ff2a6d; /* Erreur / Danger */
+
+    --text-main: #e0e6ed;
+    --text-dim: #94a3b8;
+
+    --border-glow: 0 0 10px rgba(0, 243, 255, 0.3);
+}
+
+body {
+    margin: 0;
+    background-color: var(--bg-deep);
+    /* Fond : Grille holographique subtile */
+    background-image:
+            linear-gradient(rgba(0, 243, 255, 0.05) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(0, 243, 255, 0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+    font-family: 'Rajdhani', sans-serif;
+    color: var(--text-main);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* --- Navigation HUD --- */
+.app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background: rgba(5, 10, 20, 0.95);
+    border-bottom: 1px solid var(--neon-cyan);
+    padding: 1rem 2rem;
+    box-shadow: 0 5px 20px rgba(0, 243, 255, 0.1);
+    position: relative;
+    z-index: 10;
+}
+
+nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h1 {
+    font-family: 'Cinzel', serif; /* Côté "Bibliothèque mystique" */
+    color: var(--neon-cyan);
+    font-size: 1.8rem;
+    text-shadow: 0 0 10px var(--neon-cyan);
+    letter-spacing: 2px;
+    margin: 0;
+}
+
+nav a {
+    color: var(--text-main);
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    margin-left: 2rem;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: var(--neon-gold);
+    text-shadow: 0 0 8px var(--neon-gold);
+}
+
+/* --- Bouton Déconnexion --- */
+nav button.btn, nav .btn-link {
+    background: transparent;
+    border: 1px solid var(--neon-red);
+    color: var(--neon-red);
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+nav button.btn:hover {
+    background: var(--neon-red);
+    color: white;
+    box-shadow: 0 0 10px var(--neon-red);
+}
+
+main {
+    padding: 2rem;
+    flex: 1;
+}
+
+/* --- Cartes "Fenêtre de Quête" --- */
+.card {
+    background: var(--bg-panel);
+    border: 1px solid var(--neon-cyan);
+    padding: 2.5rem;
+    max-width: 1000px;
+    margin: 3rem auto;
+    position: relative;
+    box-shadow: 0 0 30px rgba(0, 243, 255, 0.05);
+
+    /* Coins technologiques coupés */
+    clip-path: polygon(
+            20px 0, 100% 0,
+            100% calc(100% - 20px), calc(100% - 20px) 100%,
+            0 100%, 0 20px
+    );
+}
+
+/* Décoration de coin "Tech" */
+.card::after {
+    content: "";
+    position: absolute;
+    bottom: 5px; right: 5px;
+    width: 30px; height: 30px;
+    border-bottom: 2px solid var(--neon-cyan);
+    border-right: 2px solid var(--neon-cyan);
+}
+
+/* --- Grille des "Donjons" (Matières) --- */
+.subjects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.subject-btn {
+    background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0) 100%);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: var(--text-main);
+    padding: 2rem 1rem;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    display: block; /* Pour s'assurer que le lien prend la place */
+    clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+}
+
+.subject-btn:hover {
+    border-color: var(--neon-gold);
+    color: var(--bg-deep);
+    background: var(--neon-gold);
+    box-shadow: 0 0 25px rgba(255, 215, 0, 0.4);
+    transform: translateY(-5px);
+}
+
+.subject-btn:hover::before {
+    content: "ENTER DUNGEON";
+    position: absolute;
+    top: 5px; left: 0; width: 100%;
+    font-size: 0.6rem;
+    letter-spacing: 2px;
+    color: var(--bg-deep);
+    opacity: 0.7;
+}
+
+/* --- Le Jeu (Interface de Combat) --- */
+.game-container {
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+    .game-container { flex-direction: column; }
+}
+
+#questions, #answers {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Tuiles de Question/Réponse */
+.label {
+    padding: 1.5rem;
+    background: rgba(0, 10, 20, 0.6);
+    border: 1px solid rgba(0, 243, 255, 0.3);
+    color: var(--text-main);
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+    position: relative;
+    border-left: 3px solid transparent;
+}
+
+.label:hover {
+    background: rgba(0, 243, 255, 0.1);
+    border-color: var(--neon-cyan);
+    box-shadow: 0 0 15px rgba(0, 243, 255, 0.2);
+    transform: translateX(5px);
+}
+
+.label.selected {
+    background: rgba(0, 243, 255, 0.2);
+    border: 1px solid var(--neon-cyan);
+    border-left: 5px solid var(--neon-cyan);
+    box-shadow: 0 0 20px rgba(0, 243, 255, 0.3);
+}
+
+.label.correct {
+    border-color: var(--neon-gold);
+    background: rgba(255, 215, 0, 0.15);
+    color: var(--neon-gold);
+    text-shadow: 0 0 5px var(--neon-gold);
+    opacity: 0.6;
+    pointer-events: none;
+    animation: levelUp 0.5s ease;
+}
+
+.label.wrong {
+    border-color: var(--neon-red);
+    color: var(--neon-red);
+    animation: glitch 0.4s cubic-bezier(.25, .46, .45, .94) both infinite;
+}
+
+/* --- HUD Score & Info --- */
+#score {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--neon-gold);
+    border: 1px solid var(--neon-gold);
+    background: rgba(255, 215, 0, 0.05);
+    padding: 1rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    letter-spacing: 2px;
+    clip-path: polygon(15px 0, 100% 0, 100% 100%, 0 100%, 0 15px);
+}
+
+/* --- Formulaires (Login / Manage) --- */
+input, select {
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--neon-cyan);
+    color: white;
+    padding: 1rem;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1rem;
+    outline: none;
+    transition: 0.3s;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 1rem;
+}
+
+input:focus {
+    box-shadow: 0 0 15px rgba(0, 243, 255, 0.3);
+    border-color: var(--neon-gold);
+}
+
+/* --- Boutons Génériques --- */
+.btn {
+    background: transparent;
+    border: 1px solid var(--neon-cyan);
+    color: var(--neon-cyan);
+    padding: 0.8rem 2.5rem;
+    font-family: 'Rajdhani', sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: 0.3s;
+    text-decoration: none;
+    display: inline-block;
+    clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+}
+
+.btn:hover {
+    background: var(--neon-cyan);
+    color: var(--bg-deep);
+    box-shadow: 0 0 20px var(--neon-cyan);
+}
+
+.btn-danger {
+    border-color: var(--neon-red);
+    color: var(--neon-red);
+}
+
+.btn-danger:hover {
+    background: var(--neon-red);
+    color: white;
+    box-shadow: 0 0 20px var(--neon-red);
+}
+
+/* --- Animations --- */
+@keyframes glitch {
+    0% { transform: translate(0) }
+    20% { transform: translate(-2px, 2px) }
+    40% { transform: translate(-2px, -2px) }
+    60% { transform: translate(2px, 2px) }
+    80% { transform: translate(2px, -2px) }
+    100% { transform: translate(0) }
+}
+
+@keyframes levelUp {
+    0% { transform: scale(1); filter: brightness(1); }
+    50% { transform: scale(1.05); filter: brightness(2); }
+    100% { transform: scale(1); filter: brightness(1); }
+}
+
+.fade-in {
+    animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+@keyframes fadeInUp {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Texte centré utilitaire */
+.text-center { text-align: center; }
+
+/* Footer discret */
+footer {
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-dim);
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+}
