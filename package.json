@@ -1,0 +1,14 @@
+{
+  "name": "le-portail-du-savoir",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tferrand71/Le-Portail-du-Savoir.git"
+  },
+  "private": true
+}
